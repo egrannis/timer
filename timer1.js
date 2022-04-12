@@ -9,10 +9,18 @@
 
 // const args = process.argv.slice(2);
 
-let argvArray = (process.argv.slice(2)); // e.g. [10, 3, 5, 15, 9 ]
-argvArray.sort();
-
-for (let i = 0; i < argvArray.length; i++) {
-  let time = argvArray[i];
+let argvArray = process.argv.slice(2).sort(); // e.g. [10, 3, 5, 15, 9 ]
+const numArr = argvArray.map(arg => Number(arg));
+for (let i = 0; i < numArr.length; i++) {
+  const time = numArr[i];
+  if (typeof time === 'number' && time > 0) {
   setTimeout(() => process.stdout.write('\x07'), time*1000);
-};
+  }
+}; 
+
+// GOT 
+// negative numbers
+// empty
+
+// MISSING 
+// NAN
